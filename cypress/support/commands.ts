@@ -1,6 +1,12 @@
 Cypress.Commands.add('searchFor', (term: string): void => {
-  cy.get('input[name="search"]').clear().type(term + '{enter}');
+  cy.get('.btn-group.search-bar', { timeout: 10000 })
+  cy.get('#filter_keyword')
+    .should('be.visible')
+    .clear()
+    .type(term)
+    .type('{enter}');
 });
+
 
 Cypress.Commands.add('addProductToCartByName', ({ name }: { name: string }): void => {
   cy.contains('.fixed_wrapper .prdocutname', name)
