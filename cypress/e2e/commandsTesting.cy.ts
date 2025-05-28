@@ -4,7 +4,9 @@ describe('Wyszukiwanie produktu', () => {
     cy.searchFor('shampoo');
 
     cy.get('.fixed_wrapper .prdocutname')
-    .should('exist')
-    .and('contain.text', 'Shampoo');
+      .should('exist')
+      .and('contain.text', 'Shampoo');
+
+    cy.addProductToCartByName({ name: 'Curls to straight Shampoo' });
   });
 });

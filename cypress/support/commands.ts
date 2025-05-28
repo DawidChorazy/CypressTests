@@ -1,5 +1,5 @@
 Cypress.Commands.add('searchFor', (term: string): void => {
-  cy.get('.btn-group.search-bar', { timeout: 10000 })
+  cy.get('.btn-group.search-bar');
   cy.get('#filter_keyword')
     .should('be.visible')
     .clear()
@@ -9,8 +9,12 @@ Cypress.Commands.add('searchFor', (term: string): void => {
 
 
 Cypress.Commands.add('addProductToCartByName', ({ name }: { name: string }): void => {
-  cy.contains('.fixed_wrapper .prdocutname', name)
+  cy.contains('.prdocutname', name, { timeout: 10000 })
+    .should('be.visible')
     .parents('.thumbnail')
     .find('.productcart')
+    .should('be.visible')
     .click();
 });
+
+
