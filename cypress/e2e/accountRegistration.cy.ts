@@ -1,28 +1,32 @@
-describe('Wyszukiwanie, sprawdzenie ceny, dodanie produktu do koszyka następnie jego usunięcie i powrót do menu', () => {
+describe('tset', () => {
   beforeEach(() => {
     cy.visit('https://automationteststore.com/')
   });
 
   const registrationValues = {
-    firstName: 'ktos',
-    lastName: "napewno",
-    email: "ktosNapewno@napewno.pl",
+    firstName: 'jan',
+    lastName: "kowalski",
+    email: "jankowalski@napewno.pl",
     tel: '123123123',
     fax: '123123123',
-    company: 'Company Of Ktos',
-    adress1: 'Ktosiowice Napewne',
+    company: 'jankowalski',
+    adress1: 'Ktosiowice',
     city: 'Ktosioców Górny',
     Region: 'Lodzkie',
     ZIP: '22-211',
     country: 'Poland',
-    loginName: 'ktos123',
-    password: 'ktosktoskomus',
-    passwordConfirm: 'ktosktoskomus'
+    loginName: 'jankowalski123',
+    password: 'ktoscos',
+    passwordConfirm: 'ktoscos'
 
 
   }
 
-  it('Wejście w formularz rejestracyjny, wypełnienie danych, stworzenie konta', () => {
+  //  Wejście w formularz rejestracyjny,
+  //  wypełnienie danych,
+  //  stworzenie konta
+
+  it('test', () => {
     cy.get('#customer_menu_top').should('be.visible').click();
     cy.get('.btn.btn-orange.pull-right').first().should('be.visible').click();
     cy.get('#AccountFrm_firstname').should('be.visible').type(registrationValues.firstName);
